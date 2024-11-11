@@ -1,0 +1,152 @@
+PREFIX: '&a商店 > &f'
+LANG:
+  CONSOLE: 控制台
+  MSG:
+    AND: ' 和 '
+    ERROR: 发生了错误，请与服务器所有者联系。
+    INGAMEONLY: 此命令只能在游戏内使用。
+    NOACCESS: 您没有权限执行此操作。
+    NOTLOADED: 商店尚未加载，请稍后再试。
+    RELOADED: 配置已重新加载！
+    USAGE:
+      SUBCOMMAND: '无效的命令使用方式。正确用法：%usage%'
+    CMD:
+      SHOP:
+        ADDMODIFIER:
+          ITEM:
+            USAGE: /shop addmodifier item <玩家> <商店> <物品> <值> [购买|出售]
+            ADDED: 您为 &c%player%&f 在 %shop% 商店中设置了 %item% 物品的 %type% 价格修改器为 &c%modifier%&f。
+            ADDEDBY: 您在 %shop% 商店中 %item% 物品的 %type% 价格修改器被 &c%player%&f 设置为 &c%modifier%&f。
+          SHOP:
+            USAGE: /shop addmodifier shop <玩家> <商店> <值> [购买|出售]
+            ADDED: 您为 &c%player%&f 在 %shop% 商店中所有物品设置了 %type% 价格修改器为 &c%modifier%&f。
+            ADDEDBY: 您在 %shop% 商店中所有物品的 %type% 价格修改器被 &c%player%&f 设置为 &c%modifier%&f。
+        GLOBAL:
+          USAGE: /shop addmodifier global <玩家> <值> [购买|出售]
+          ADDED: 您为 &c%player%&f 设置了 %type% 价格修改器为 &c%modifier%&f。
+          ADDEDBY: 您的 %type% 价格修改器被 &c%player%&f 设置为 &c%modifier%&f。
+      CHECK:
+        ITEM: 此物品类型为 &c%material%&f，损坏值为 &c%damage%&f。
+        NOITEM: 您必须手持物品才能检查其类型。
+      CHECKMODIFIERS:
+        VIEW:
+          VIEW: |-
+            &c%player%&f 的命令修改器：
+            全局修改器：
+            %global%
+            商店修改器：
+            %shop%
+            物品修改器：
+            %item%
+        VIEWPERMISSIONMODIFIERS: |-
+            &c%player%&f 的权限修改器：
+            全局修改器：
+            %global%
+            商店修改器：
+            %shop%
+            物品修改器：
+            %item%
+        ENTRY:
+          ITEM: '物品：&c%item%&f, 商店：&c%shop%&f, 购买：&c%buy%&f, 出售：&c%sell%&f'
+          SHOP: '商店：&c%shop%&f, 购买：&c%buy%&f, 出售：&c%sell%&f'
+          GLOBAL: '购买：&c%buy%&f, 出售：&c%sell%&f'
+      RESETMODIFIER:
+        ITEM:
+          USAGE: /shop resetmodifier item <玩家> <商店> <物品> [购买|出售]
+          RESET: 您重置了 &c%player%&f 在 %shop% 商店中 %item% 物品的 %type% 价格修改器。
+          RESETBY: 您在 %shop% 商店中 %item% 物品的 %type% 价格修改器被 &c%player%&f 重置。
+        SHOP:
+          USAGE: /shop resetmodifier shop <玩家> <商店> [购买|出售]
+          RESET: 您重置了 &c%player%&f 在 %shop% 商店中所有物品的 %type% 价格修改器。
+          RESETBY: 您在 %shop% 商店中所有物品的 %type% 价格修改器被 &c%player%&f 重置。
+        GLOBAL:
+          USAGE: /shop resetmodifier global <玩家> [购买|出售]
+          RESET: 您重置了 &c%player%&f 的 %type% 价格修改器。
+          RESETBY: 您的 %type% 价格修改器被 &c%player%&f 重置。
+    MODIFIER:
+      INVALIDAMOUNT: 指定的修改器值无效。有效值例如 0.50 代表 50%，2.0 代表 200% 等。
+      INVALIDTYPE: 指定的修改器类型无效。有效值包括购买、出售和两者。
+      BUY: 购买
+      SELL: 出售
+      BOTH: 购买 & 出售
+    INVALIDPLAYER: 指定的玩家名称无效。
+    INVALIDSHOP: 未找到 ID 为 &c%shop%&f 的商店。
+    INVALIDITEM: 在 &c%shop%&f 中未找到 ID 为 &c%item%&f 的物品。
+    NOACCESSTOSHOP: 您没有访问 &c%shop%&f 商店的权限。
+    NODIRECTACCESSTOSHOP: 您不能直接访问 &c%shop%&f 商店。
+    MAINMENUDISABLED: 您不能使用此命令。请使用 /shop <id> 代替。
+    WORLDBLACKLISTED: 您不能在这个世界访问 %shop%。
+    WORLDBANNED: 您不能在这个世界访问商店。
+    WORLDBANNEDTARGET: '%player% 不能在那个世界访问商店。'
+    GAMEMODEBANNED: 当您处于 %gamemode% 游戏模式时，不能访问商店。
+    GAMEMODEBANNEDTARGET: '%player% 在 %gamemode% 游戏模式时不能访问商店。'
+    ITEM:
+      FULLINVENTORY: 您的背包没有足够的空间。
+      CANNOTAFFORD: 您需要 &c%price%&f 来购买 &c%amount% x %item%&f。
+      CANNOTBUY: 您不能购买这个物品。
+      CANNOTSELL: 您不能出售这个物品。
+      BOUGHT: 您购买了 &c%amount% x %item%&f，花费了 &c%price%&f。
+      BOUGHTFREE: 您获得了 &c%amount% x %item%&f。
+      NOTENOUGH: 您没有 &c%amount% x %item%&f 可以出售。
+      SOLD: 您出售了 &a%amount% x %item%&f，获得了 &a%price%&f。
+      SOLDFREE: 您免费赠送了 &a%amount% x %item%&f。
+      SOLDALL: 您出售了所有 &a%item%&f（&a%amount% x %item%&f），获得了 &a%price%&f。
+      SOLDALLFREE: 您免费赠送了所有 &a%item%&f（&a%amount% x %item%&f）。
+      NOACCESS: 您没有权限访问这个物品。
+    ENCHANT:
+      CANNOTAPPLY: 无法对您手持的物品应用 &c%enchantment%&f 附魔。
+      ALREADYAPPLIED: 此物品已经应用了 &c%enchantment%&f。
+      LEVELDIFF: 您需要至少应用了 &c%enchantment% %level%&f 的物品。
+      CANNOTAFFORD: 您需要 &c%price%&f 来购买 &c%enchantment%&f。
+      MAX: 此物品已经拥有最大数量的附魔（%amount%）。
+      TOOMANY: 您不能一次性附魔超过 %amount% 个物品。
+      BOUGHT: 您购买了 &c%enchantment%&f 附魔，花费了 &c%price%&f。
+      BOUGHTFREE: 您获得了 &c%enchantment%&f。
+    PERMISSION:
+      PERMISSIONSDISABLED: 权限已禁用，请联系服务器所有者。
+      ALREADYHAVE: 您已经拥有 &c%permission%&f 权限。
+      CANNOTAFFORD: 您需要 &c%price%&f 来购买 &c%permission%&f。
+      BOUGHT: 您购买了 &c%permission%&f 权限，花费了 &c%price%&f。
+      BOUGHTFREE: 您获得了 &c%permission%&f。
+    COMMAND:
+      BOUGHT: 您购买了 &c%command%&f，花费了 &c%price%&f。
+      BOUGHTFREE: 您获得了 &c%command%&f。
+      CANNOTAFFORD: 您需要 &c%price%&f 来购买 &c%command%&f 命令。
+  SELLHAND:
+    NOITEM: 您必须手持物品才能出售。
+    INVALIDQUANTITY: 指定的数量无效。必须在 1 和 %max% 之间。
+    CANNOTSELL: 您不能出售这个物品。
+    MULTIPLEQUANTITYONLY: 您不能出售那个数量。只允许出售 %quantity% 的倍数。
+  SELLHANDALL:
+    SOLD: 您出售了 &a%quantity% x %item%&f，总共获得了 &a%price%&f。
+  SELLALL:
+    NOITEMS: 您没有任何可以出售的物品。
+    SOLD: 您出售了 &a%quantity% 件物品&f，总共获得了 &a%price%&f。
+    INVALIDSHOP: 指定的商店无效。
+  NUMBERFORMAT:
+    SHORTSCALE:
+      THOUSAND: ' 千'
+      MILLION: ' 百万'
+      BILLION: ' 十亿'
+      TRILLION: ' 万亿'
+      QUADRILLION: ' 千万亿'
+      QUINTILLION: ' 五千万亿'
+      SEXTILLION: ' 六千万亿'
+      SEPTILLION: ' 七千万亿'
+      OCTILLION: ' 八千万亿'
+      NONILLION: ' 九千万亿'
+      DECILLION: ' 十亿亿'
+DIALOG:
+  AMOUNTSELECTION:
+    BUY:
+      NAME: '&2购买 %item%'
+    SELL:
+      NAME: '&c出售 %item%'
+    BULKBUY:
+      NAME: '&c批量购买 %item%'
+    BULKSELL:
+      NAME: '&c批量出售 %item%'
+SHOP:
+  PERMISSION:
+    ALREADYOWNED: '&4（已拥有）'
+    NOTOWNED: '&a（未拥有）'

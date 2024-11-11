@@ -1,0 +1,701 @@
+#
+# 有关 ShopGUI+ 的 Wiki，请查看以下链接：
+# https://docs.brcdev.net/ -> 'General' 和 'ShopGUI+' 部分都适用于 ShopGUI+
+#
+# 如果您是第一次使用 ShopGUI+，请从这里开始：
+# https://docs.brcdev.net/#/shopgui/shops-items-setup
+#
+database:
+  # 数据库后端类型，可以设置为 mysql 或 sqlite
+  type: sqlite
+  # MySQL 数据库主机
+  mySQLHost: localhost
+  # MySQL 连接端口号
+  mySQLPort: 3306
+  # MySQL 数据库名称
+  mySQLDatabase: db
+  # MySQL 数据库用户
+  mySQLUser: root
+  # MySQL 用户的密码
+  mySQLPassword: ""
+  # MySQL 表名称
+  tableNames:
+    players: "players"
+
+# 将在商店中启用并可以使用的经济类型。
+# 支持的经济系统：
+#  - EXP (默认的 Minecraft 经验点)
+#  - EXP_LEVELS (默认的 Minecraft 经验等级；建议使用整数价格，价格将向下取整)
+#  - VAULT (需要 https://www.spigotmc.org/resources/vault.34315/)
+#  - GEMS_ECONOMY (需要 https://www.spigotmc.org/resources/gemseconomy.19655/)
+#  - GRINGOTTS (需要 https://www.spigotmc.org/resources/gringotts.42071/)
+#  - MYSQL_TOKENS (需要 https://www.spigotmc.org/resources/mysql-tokens.7535/)
+#  - PLAYER_POINTS (需要 https://www.spigotmc.org/resources/playerpoints.80745/)
+#  - TOKEN_ENCHANT (需要 https://www.spigotmc.org/resources/tokenenchant.2287/)
+#  - TOKEN_MANAGER (需要 https://www.spigotmc.org/resources/tokenmanager.8610/)
+#  - VOTING_PLUGIN (需要 https://www.spigotmc.org/resources/votingplugin.15358/)
+#  - COINS_ENGINE (需要 https://www.spigotmc.org/resources/coinsengine.84121/)
+# 第一个将是所有商店的默认经济系统。
+economyTypes:
+  - VAULT
+# 主 GUI 的名称
+shopMenuName: "&3&l商店菜单"
+# 主 GUI 的大小，有效值为 9, 18, 27, 36, 45 和 54
+shopMenuSize: 45
+# 选择一个物品来填充菜单中的空槽
+shopMenuFillItem:
+  material: BLACK_STAINED_GLASS_PANE
+  name: " "
+# 定义是否启用使用鼠标中键出售全部的功能
+enableSellAll: true
+# 定义是否启用带有选择数量选项的购买 GUI
+enableBuyGUI: true
+# 定义是否启用带有选择数量选项的出售 GUI
+enableSellGUI: true
+# 定义在出售 GUI 中是否启用出售全部按钮（也需要启用 enableSellGUI）
+enableSellGUISellAll: true
+# 定义在关闭/购买/出售后是否再次打开商店 GUI
+returnToShop: true
+# 定义是否启用快速购买/出售选项（数量选择 GUI 将保持打开直到玩家关闭它）
+quickBuySell: false
+# 定义是否对于不可购买的物品隐藏包含 %buy% 占位符的行
+hideBuyPriceForUnbuyable: true
+# 选择在 hideBuyPriceForUnbuyable 被禁用时的价格占位符
+buyPriceForUnsellablePlaceholder: "-"
+# 定义是否对于不可出售的物品隐藏包含 %sell% 占位符的行
+hideSellPriceForUnsellable: true
+# 选择在 hideSellPriceForUnsellable 被禁用时的价格占位符
+sellPriceForUnsellablePlaceholder: "-"
+# 选择在商店内鼠标点击的动作
+# 支持的点击类型：所有 ClickType 枚举类型 (https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/inventory/ClickType.html)
+# 支持的动作：BUY, SELL, SELL_ALL, NONE
+clickActions:
+  LEFT: BUY
+  RIGHT: SELL
+  SHIFT_RIGHT: SELL_ALL
+  MIDDLE: SELL_ALL
+# 玩家可以给物品添加的最大附魔数量，设置为 -1 则无限制
+maxEnchantments: 3
+# 选择是否玩家只能购买比当前等级高一级的附魔（例如玩家有附魔锋利 I 的剑，他们只能购买锋利 II）
+limitEnchantmentLevelDiff: false
+# 定义是否启用数量选择双击漏洞修复
+enableAmountSelectionFix: true
+# 定义玩家是否能够使用出售全部选项出售他们所有物品（allowAllSellAllStackSizes = true）或者只出售商店物品原始堆叠大小的倍数（allowAllSellAllStackSizes = false）
+allowAllSellAllStackSizes: false
+# 定义是否所有价格应该四舍五入，向下取整，向上取整，或者不四舍五入（有效值为 UP, DOWN, NEAREST 和 NONE）
+roundPrices: none
+# 定义是否禁用主菜单（/shop 命令）。禁用后，访问商店的唯一方式是使用 /shop <id> 当您禁用它。
+disableMainMenu: false
+# 选择是否在有人以 $0 价格购买/出售物品时发送不同的消息（MSG_ITEM_BOUGHTFREE, MSG_ITEM_SOLDFREE, MSG_ITEM_SOLDALLFREE）
+useDifferentMessagesForFreeItems: true
+# 选择是否将物品名称的首字母大写，例如 nether brick 将变为 Nether Brick
+capitalizeItemNames: true
+# 选择价格修改器的类型。（BOTH（权限修改器比命令修改器有更高的优先级），COMMAND, PERMISSION）
+priceModifiersType: BOTH
+# 选择在使用出售全部功能后是否关闭 GUI
+closeGuiAfterSellAll: false
+# 选择是否在点击物品后立即打开批量购买/出售 GUI（需要启用 enableBuyGUI 和 enableSellGUI，并且玩家需要有批量购买/出售权限）
+openBulkGuiImmediately: false
+# 选择通过控制台使用 /shop [player] 打开商店的玩家是否能够无视他们拥有的权限访问所有商店
+sudoAllowAllShopsAccess: false
+# 选择在数量选择 GUI 中哪些物品的堆叠大小应该限制在 16，以便玩家不能购买例如过大的末影珍珠堆叠
+# 格式与商店 yaml 中的常规物品相同
+# 注意：对于药水，首先检查精确匹配。如果没有找到，并且在这里设置了没有类型的药水，它将被使用
+# 警告：在 1.21 和更新版本中，药水不再堆叠
+itemStackSizeCappedAt:
+  1:
+    material: ENDER_PEARL
+    size: 16
+  2:
+    material: SNOWBALL
+    size: 16
+  3:
+    material: EGG
+    size: 16
+  4:
+    material: BUCKET
+    size: 1
+# 选择哪些游戏模式将阻止玩家访问商店。有效值：ADVENTURE, CREATIVE, SPECTATOR, SURVIVAL
+disableShopsInGamemodes:
+  - ADVENTURE
+  - CREATIVE
+  - SPECTATOR
+# 选择在哪些世界中玩家不能访问商店。与 disableShopsInGamemodes 相同的列表格式
+disableShopsInWorlds: [ ]
+
+# 选择是否应该以百分比而不是小数显示价格修改器（例如 10% 而不是 0.10），记住您仍然需要在命令中使用小数方式
+displayPriceModifiersInPercents: true
+
+# 选择当玩家使用 /shop [player] [shop name] 打开商店时是否省略访问商店的世界特定权限
+disableSudoWorldPermissionCheck: false
+
+# 选择当玩家使用 /shop [player] [shop name] 打开商店时是否省略访问商店的商店特定权限
+disableSudoShopPermissionCheck: false
+
+# 选择是否允许附魔物品类型对带有不安全附魔的物品进行附魔。（例如带有锋利 25 的棍子）
+disableUnsafeEnchantmentCheck: false
+
+# 选择是否允许附魔物品类型在已经带有相同附魔低等级的物品上应用附魔。（例如在带有锋利 I 的物品上附魔锋利 III）
+allowEnchantmentLevelIncrease: true
+
+# 选择某些 GUI 操作的声音。完整列表可在 https://docs.brcdev.net/#/sounds 查看
+sounds:
+  MAIN_MENU_OPEN: UI_BUTTON_CLICK
+  SHOP_OPEN: UI_BUTTON_CLICK
+  SHOP_SELECT_ITEM: UI_BUTTON_CLICK
+  SHOP_SWITCH_PAGE: ITEM_BOOK_PAGE_TURN
+  SELL_ITEM: ENTITY_EXPERIENCE_ORB_PICKUP
+  SELL_ALL_ITEM: ENTITY_EXPERIENCE_ORB_PICKUP
+  BUY_ITEM: ENTITY_EXPERIENCE_ORB_PICKUP
+
+# 为所有物品选择预设设置（将在商店 yaml 中为物品明确设置时被覆盖）
+defaultItemSettings:
+  # 选择当玩家尝试出售物品时是否比较物品元数据（名称、lore 等）
+  compareMeta: false
+  # 选择当物品被玩家从商店购买时是否从物品中移除元数据
+  stripItemMeta: false
+  # 选择当玩家尝试出售物品时是否比较物品模型
+  compareModel: true
+  # 选择当玩家尝试出售物品时是否比较物品的耐久度/伤害值
+  compareDamage: false
+  # 选择当玩家尝试出售物品时是否比较物品的 NBT 数据
+  compareNbt: false
+
+# 商店中物品描述的格式，%buy% 将被替换为购买价格，%sell% 替换为出售价格
+shopItemLoreFormat:
+  # 将应用于物品的描述
+  item:
+    - "&7购买价格：&c%buy%"
+    - "&7出售价格：&a%sell%"
+    - "&9用中键点击出售全部"
+  # 将应用于购买 GUI 中的物品描述（当 enableBuyGUI 设置为 true 时）
+  itemBuyGUI:
+    - "&7数量：&c%amount%"
+    - "&7购买价格：&c%buy%"
+  # 将应用于出售 GUI 中的物品描述（当 enableSellGUI 设置为 true 时）
+  itemSellGUI:
+    - "&7数量：&c%amount%"
+    - "&7出售价格：&a%sell%"
+  # 将应用于出售 GUI 中的出售全部按钮（当 enableSellGUI 和 enableSellGUISellAll 设置为 true 时）
+  itemSellGUISellAll:
+    - "&7全部出售价格：&a%sell%"
+  # 将应用于权限的描述
+  permission:
+    - "&7购买价格：&c%buy%"
+  # 将应用于附魔的描述
+  enchantment:
+    - "&7购买价格：&c%buy%"
+  # 将应用于命令的描述
+  command:
+    - "&7购买价格：&c%buy%"
+
+# 日志设置
+log:
+  # 定义是否将交易记录到控制台/主服务器日志
+  toConsole: true
+  # 定义是否将交易记录到单独的日志文件
+  toFile: false
+  # 交易的日期格式（http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html）
+  formatDate: "yyyy/MM/dd HH:mm:ss"
+  # 购买命令的日志消息
+  formatBuyCommand: "%player% 在 %shop% 商店以 %price% 的价格购买了 %amount% x %command% 命令"
+  # 购买附魔的日志消息
+  formatBuyEnchantment: "%player% 在 %shop% 商店以 %price% 的价格购买了 %enchantment% 附魔"
+  # 购买权限的日志消息
+  formatBuyPermission: "%player% 在 %shop% 商店以 %price% 的价格购买了 %permission% 权限"
+  # 购买物品的日志消息
+  formatBuy: "%player% 在 %shop% 商店以 %price% 的价格购买了 %amount% x %item%"
+  # 出售物品的日志消息
+  formatSell: "%player% 以 %price% 的价格向 %shop% 商店出售了 %amount% x %item%"
+  # 出售全部物品的日志消息
+  formatSellAll: "%player% 以 %price% 的价格向 %shop% 商店出售了全部 %amount% x %item%"
+
+# 手持出售命令设置
+sellHand:
+  # 当设置为 true 时，玩家将能够出售任何数量的物品（价格将根据基础价格计算）
+  allowAllQuantities: true
+  # 当设置为 true 时，/sell hand 将与 /sell handall 的工作方式相同
+  sellsAllItems: false
+  # 当设置为 true 时，免费物品（出售价格为 $0）将被排除在 /sell hand 和 /sell handall 出售之外
+  excludeFreeItems: true
+  # 当设置为 true 时，装备栏中的物品将被排除在 /sell hand 和 /sell handall 出售之外
+  excludeArmorSlots: true
+  # 当设置为 true 时，副手栏中的物品将被排除在 /sell hand 和 /sell handall 出售之外
+  excludeOffHand: false
+
+# 出售全部命令设置
+sellAll:
+  # 当设置为 true 时，玩家将获得每个物品堆叠出售的详细摘要和价格
+  detailedSummary: false
+  # 选择在出售全部时是否选择物品在所有商店中的最大出售价格。启用此选项可能会影响出售命令的性能，特别是当有许多商店/物品时
+  findMaxSellPrice: true
+  # 当设置为 true 时，免费物品（出售价格为 $0）将被排除在 /sell all 出售之外
+  excludeFreeItems: true
+  # 当设置为 true 时，装备栏中的物品将被排除在 /sell all 出售之外
+  excludeArmorSlots: true
+  # 当设置为 true 时，副手栏中的物品将被排除在 /sell all 出售之外
+  excludeOffHand: false
+
+buttons:
+  # “返回按钮”
+  goBack:
+    item:
+      # 材料名称，完整列表可在此处找到：https://docs.brcdev.net/#/materials
+      material: BARRIER
+      # 物品数量
+      amount: 1
+      # （可选）数据值，例如 1 表示 WOOD:1 代表云杉木板
+      damage: 0
+      # （可选）自定义名称
+      name: "&c&l返回分类"
+      # （可选）描述，可以包含多行
+      lore:
+        - "&7点击这里返回"
+        - "&7主菜单"
+    # 每个商店 GUI 中的槽位
+    slot: 49
+  # “上一页”按钮
+  previousPage:
+    item:
+      material: PAPER
+      quantity: 1
+      name: "&e&l上一页"
+    slot: 48
+  # “下一页”按钮
+  nextPage:
+    item:
+      material: PAPER
+      quantity: 1
+      name: "&e&l下一页"
+    slot: 50
+
+# 批量购买 GUI 的元素
+amountSelectionGUIBulkBuy:
+  # GUI 的大小，有效值为 9, 18, 27, 36, 45 和 54
+  size: 18
+  # 填充物品
+  fillItem:
+    material: BLACK_STAINED_GLASS_PANE
+    name: " "
+  # 选择是否用购买物品的类型替换按钮类型
+  replaceButtonsType: true
+  # 按钮
+  buttons:
+    # “购买 1 堆叠”按钮
+    buy1:
+      item:
+        material: CHEST
+        quantity: 1
+        name: "&a购买 1 堆叠"
+        lore:
+          - "&7价格：&c%buy%"
+      # 表示堆叠数量的值
+      value: 1
+      slot: 0
+    # “购买 2 堆叠”按钮
+    buy2:
+      item:
+        material: CHEST
+        quantity: 2
+        name: "&a购买 2 堆叠"
+        lore:
+          - "&7价格：&c%buy%"
+      value: 2
+      slot: 1
+    # “购买 3 堆叠”按钮
+    buy3:
+      item:
+        material: CHEST
+        quantity: 3
+        name: "&a购买 3 堆叠"
+        lore:
+          - "&7价格：&c%buy%"
+      value: 3
+      slot: 2
+    # “购买 4 堆叠”按钮
+    buy4:
+      item:
+        material: CHEST
+        quantity: 4
+        name: "&a购买 4 堆叠"
+        lore:
+          - "&7价格：&c%buy%"
+      value: 4
+      slot: 3
+    # “购买 5 堆叠”按钮
+    buy5:
+      item:
+        material: CHEST
+        quantity: 5
+        name: "&a购买 5 堆叠"
+        lore:
+          - "&7价格：&c%buy%"
+      value: 5
+      slot: 4
+    # “购买 6 堆叠”按钮
+    buy6:
+      item:
+        material: CHEST
+        quantity: 6
+        name: "&a购买 6 堆叠"
+        lore:
+          - "&7价格：&c%buy%"
+      value: 6
+      slot: 5
+    # “购买 7 堆叠”按钮
+    buy7:
+      item:
+        material: CHEST
+        quantity: 7
+        name: "&a购买 7 堆叠"
+        lore:
+          - "&7价格：&c%buy%"
+      value: 7
+      slot: 6
+    # “购买 8 堆叠”按钮
+    buy8:
+      item:
+        material: CHEST
+        quantity: 8
+        name: "&a购买 8 堆叠"
+        lore:
+          - "&7价格：&c%buy%"
+      value: 8
+      slot: 7
+    # “购买 9 堆叠”按钮
+    buy9:
+      item:
+        material: CHEST
+        quantity: 9
+        name: "&a购买 9 堆叠"
+        lore:
+          - "&7价格：&c%buy%"
+      value: 9
+      slot: 8
+    # “取消”按钮
+    cancel:
+      item:
+        material: RED_STAINED_GLASS
+        quantity: 1
+        name: "&c&l取消"
+      slot: 13
+
+# 批量出售 GUI 的元素
+amountSelectionGUIBulkSell:
+  # GUI 的大小，有效值为 9, 18, 27, 36, 45 和 54
+  size: 18
+  # 填充物品
+  fillItem:
+    material: BLACK_STAINED_GLASS_PANE
+    name: " "
+  # 选择是否用出售物品的类型替换按钮类型
+  replaceButtonsType: true
+  # 按钮
+  buttons:
+    # “出售 1 堆叠”按钮
+    sell1:
+      item:
+        material: CHEST
+        quantity: 1
+        name: "&a出售 1 堆叠"
+        lore:
+          - "&7价格：&c%sell%"
+      # 表示堆叠数量的值
+      value: 1
+      slot: 0
+    # “出售 2 堆叠”按钮
+    sell2:
+      item:
+        material: CHEST
+        quantity: 2
+        name: "&a出售 2 堆叠"
+        lore:
+          - "&7价格：&c%sell%"
+      value: 2
+      slot: 1
+    # “出售 3 堆叠”按钮
+    sell3:
+      item:
+        material: CHEST
+        quantity: 3
+        name: "&a出售 3 堆叠"
+        lore:
+          - "&7价格：&c%sell%"
+      value: 3
+      slot: 2
+    # “出售 4 堆叠”按钮
+    sell4:
+      item:
+        material: CHEST
+        quantity: 4
+        name: "&a出售 4 堆叠"
+        lore:
+          - "&7价格：&c%sell%"
+      value: 4
+      slot: 3
+    # “出售 5 堆叠”按钮
+    sell5:
+      item:
+        material: CHEST
+        quantity: 5
+        name: "&a出售 5 堆叠"
+        lore:
+          - "&7价格：&c%sell%"
+      value: 5
+      slot: 4
+    # “出售 6 堆叠”按钮
+    sell6:
+      item:
+        material: CHEST
+        quantity: 6
+        name: "&a出售 6 堆叠"
+        lore:
+          - "&7价格：&c%sell%"
+      value: 6
+      slot: 5
+    # “出售 7 堆叠”按钮
+    sell7:
+      item:
+        material: CHEST
+        quantity: 7
+        name: "&a出售 7 堆叠"
+        lore:
+          - "&7价格：&c%sell%"
+      value: 7
+      slot: 6
+    # “出售 8 堆叠”按钮
+    sell8:
+      item:
+        material: CHEST
+        quantity: 8
+        name: "&a出售 8 堆叠"
+        lore:
+          - "&7价格：&c%sell%"
+      value: 8
+      slot: 7
+    # “出售 9 堆叠”按钮
+    sell9:
+      item:
+        material: CHEST
+        quantity: 9
+        name: "&a出售 9 堆叠"
+        lore:
+          - "&7价格：&c%sell%"
+      value: 9
+      slot: 8
+    # “取消”按钮
+    cancel:
+      item:
+        material: RED_STAINED_GLASS
+        quantity: 1
+        name: "&c&l取消"
+      slot: 13
+
+# 常规购买/出售 GUI 的元素
+amountSelectionGUI:
+  # GUI 的大小，有效值为 9, 18, 27, 36, 45 和 54
+  size: 54
+  # 填充物品
+  fillItem:
+    material: BLACK_STAINED_GLASS_PANE
+    name: " "
+  # 被购买/出售物品的槽位
+  itemSlot: 22
+  # 按钮
+  buttons:
+    # “设置为 1”按钮
+    set1:
+      item:
+        material: RED_STAINED_GLASS_PANE
+        quantity: 1
+        name: "&c&l设置为 1"
+      slot: 18
+    # “减去 10”按钮
+    remove10:
+      item:
+        material: RED_STAINED_GLASS_PANE
+        quantity: 10
+        name: "&c&l减去 10"
+      slot: 19
+    # “减去 1”按钮
+    remove1:
+      item:
+        material: RED_STAINED_GLASS_PANE
+        quantity: 1
+        name: "&c&l减去 1"
+      slot: 20
+    # “加上 1”按钮
+    add1:
+      item:
+        material: LIME_STAINED_GLASS_PANE
+        quantity: 1
+        name: "&a&l加上 1"
+      slot: 24
+    # “加上 10”按钮
+    add10:
+      item:
+        material: LIME_STAINED_GLASS_PANE
+        quantity: 10
+        name: "&a&l加上 10"
+      slot: 25
+    # “设置为 16”按钮
+    set16:
+      item:
+        material: LIME_STAINED_GLASS_PANE
+        quantity: 16
+        name: "&a&l设置为 16"
+      slot: 26
+    # “设置为 64”按钮
+    set64:
+      item:
+        material: LIME_STAINED_GLASS_PANE
+        quantity: 64
+        name: "&a&l设置为 64"
+      slot: 26
+    # “确认”按钮
+    confirm:
+      item:
+        material: LIME_STAINED_GLASS
+        quantity: 1
+        name: "&a&l确认"
+      slot: 39
+    # “出售全部”按钮
+    sellAll:
+      item:
+        material: LIME_STAINED_GLASS
+        quantity: 1
+        name: "&a&l出售全部"
+      slot: 40
+    # “购买更多”按钮
+    buyMore:
+      item:
+        material: LIME_STAINED_GLASS
+        quantity: 64
+        name: "&a&l购买更多"
+      slot: 49
+    # “出售更多”按钮
+    sellMore:
+      item:
+        material: LIME_STAINED_GLASS
+        quantity: 64
+        name: "&a&l出售更多"
+      slot: 49
+    # “取消”按钮
+    cancel:
+      item:
+        material: RED_STAINED_GLASS
+        quantity: 1
+        name: "&c&l取消"
+      slot: 41
+
+shopMenuItems:
+  # 必须是唯一的，值无所谓
+  1:
+    item:
+      # 材料、数量、损坏值和描述的规则与 goBackButton 相同
+      material: GRASS_BLOCK
+      quantity: 1
+      name: "&9&l方块"
+    # 商店的 ID，来自商店 yaml
+    shop: "blocks"
+    # 商店菜单中的槽位，从 0 到 53
+    slot: 11
+  2:
+    item:
+      material: COOKED_CHICKEN
+      quantity: 1
+      damage: 0
+      name: "&2&l食物"
+      lore:
+        - "&7在这里获取美味的食物！"
+    shop: "food"
+    slot: 12
+  3:
+    item:
+      material: GOLD_INGOT
+      quantity: 1
+      damage: 0
+      name: "&3&l矿石"
+    shop: "ores"
+    slot: 13
+  4:
+    item:
+      material: IRON_PICKAXE
+      quantity: 1
+      name: "&8&l工具"
+    shop: "tools"
+    slot: 14
+  5:
+    item:
+      material: DIAMOND_CHESTPLATE
+      quantity: 1
+      name: "&4&l盔甲"
+    shop: "armor"
+    slot: 15
+  6:
+    item:
+      material: WHEAT
+      quantity: 1
+      name: "&5&l农业"
+    shop: "farming"
+    slot: 21
+  7:
+    item:
+      material: SPIDER_EYE
+      quantity: 1
+      name: "&9&l生物掉落物"
+    shop: "drops"
+    slot: 22
+  8:
+    item:
+      material: LIGHT_BLUE_DYE
+      quantity: 1
+      name: "&2&l染料"
+    shop: "dyes"
+    slot: 23
+  9:
+    item:
+      material: SADDLE
+      quantity: 1
+      name: "&3&l杂项"
+    shop: "miscellaneous"
+    slot: 31
+  10:
+    type: special
+    special: balance
+    slot: 34
+
+specialElements:
+  balance:
+    item:
+      material: GOLD_INGOT
+      quantity: 1
+      name: "&6&l您的余额"
+      lore:
+        - "&7%balance%"
+
+# 在消息中格式化数字的选项
+numberFormat:
+  # 更改用于分隔可能不是整数的数字的小数点字符
+  decimalSeparator: "."
+  # 更改用于分隔较大数字的逗号字符
+  groupingSeparator: ","
+  # 指定整数显示的最小位数
+  minimumIntegerDigits: 1
+  # 指定整数显示的最大位数
+  maximumIntegerDigits: 32
+  # 指定分数显示的最小小数位
+  minimumFractionDigits: 0
+  # 指定分数显示的最大小数位
+  maximumFractionDigits: 8
+  # 指定是否在不适用时去除末尾的小数位。这将把 $100.00 改为 $100
+  hideFraction: true
+  shortScale:
+    # 指定是否希望在消息中显示的数字在超过一定数值时转换为短标度。这将把 "1,000,000" 转换为 "1 million"
+    enableShortScaleNumbering: false
+    # 指定短标度数字格式化开始的下限。任何超过此限制的数字都将转换为短标度数字格式
+    shortScaleLimit: 1000000
+    # 指定显示大的短标度数字的小数部分的最大小数位数。（默认为2位小数）
+    shortHandDecimalLimit: 2
+    # 指定显示较大的短标度数字的最大位数。（默认为32位）
+    shortHandNumberLimit: 32
