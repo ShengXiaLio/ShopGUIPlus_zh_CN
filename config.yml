@@ -281,93 +281,93 @@ amountSelectionGUIBulkBuy:
   replaceButtonsType: true
   # 按钮
   buttons:
-    # “购买 1 堆叠”按钮
+    # “购买 1 组”按钮
     buy1:
       item:
         material: CHEST
         quantity: 1
-        name: "&a购买 1 堆叠"
+        name: "&a购买 1 组"
         lore:
           - "&7价格：&c%buy%"
-      # 表示堆叠数量的值
+      # 表示组数量的值
       value: 1
       slot: 0
-    # “购买 2 堆叠”按钮
+    # “购买 2 组”按钮
     buy2:
       item:
         material: CHEST
         quantity: 2
-        name: "&a购买 2 堆叠"
+        name: "&a购买 2 组"
         lore:
           - "&7价格：&c%buy%"
       value: 2
       slot: 1
-    # “购买 3 堆叠”按钮
+    # “购买 3 组”按钮
     buy3:
       item:
         material: CHEST
         quantity: 3
-        name: "&a购买 3 堆叠"
+        name: "&a购买 3 组"
         lore:
           - "&7价格：&c%buy%"
       value: 3
       slot: 2
-    # “购买 4 堆叠”按钮
+    # “购买 4 组”按钮
     buy4:
       item:
         material: CHEST
         quantity: 4
-        name: "&a购买 4 堆叠"
+        name: "&a购买 4 组"
         lore:
           - "&7价格：&c%buy%"
       value: 4
       slot: 3
-    # “购买 5 堆叠”按钮
+    # “购买 5 组”按钮
     buy5:
       item:
         material: CHEST
         quantity: 5
-        name: "&a购买 5 堆叠"
+        name: "&a购买 5 组"
         lore:
           - "&7价格：&c%buy%"
       value: 5
       slot: 4
-    # “购买 6 堆叠”按钮
+    # “购买 6 组”按钮
     buy6:
       item:
         material: CHEST
         quantity: 6
-        name: "&a购买 6 堆叠"
+        name: "&a购买 6 组"
         lore:
           - "&7价格：&c%buy%"
       value: 6
       slot: 5
-    # “购买 7 堆叠”按钮
+    # “购买 7 组”按钮
     buy7:
       item:
         material: CHEST
         quantity: 7
-        name: "&a购买 7 堆叠"
+        name: "&a购买 7 组"
         lore:
           - "&7价格：&c%buy%"
       value: 7
       slot: 6
-    # “购买 8 堆叠”按钮
+    # “购买 8 组”按钮
     buy8:
       item:
         material: CHEST
         quantity: 8
-        name: "&a购买 8 堆叠"
+        name: "&a购买 8 组"
         lore:
           - "&7价格：&c%buy%"
       value: 8
       slot: 7
-    # “购买 9 堆叠”按钮
+    # “购买 9 组”按钮
     buy9:
       item:
         material: CHEST
         quantity: 9
-        name: "&a购买 9 堆叠"
+        name: "&a购买 9 组"
         lore:
           - "&7价格：&c%buy%"
       value: 9
@@ -392,93 +392,93 @@ amountSelectionGUIBulkSell:
   replaceButtonsType: true
   # 按钮
   buttons:
-    # “出售 1 堆叠”按钮
+    # “出售 1 组”按钮
     sell1:
       item:
         material: CHEST
         quantity: 1
-        name: "&a出售 1 堆叠"
+        name: "&a出售 1 组"
         lore:
           - "&7价格：&c%sell%"
-      # 表示堆叠数量的值
+      # 表示组数量的值
       value: 1
       slot: 0
-    # “出售 2 堆叠”按钮
+    # “出售 2 组”按钮
     sell2:
       item:
         material: CHEST
         quantity: 2
-        name: "&a出售 2 堆叠"
+        name: "&a出售 2 组"
         lore:
           - "&7价格：&c%sell%"
       value: 2
       slot: 1
-    # “出售 3 堆叠”按钮
+    # “出售 3 组”按钮
     sell3:
       item:
         material: CHEST
         quantity: 3
-        name: "&a出售 3 堆叠"
+        name: "&a出售 3 组"
         lore:
           - "&7价格：&c%sell%"
       value: 3
       slot: 2
-    # “出售 4 堆叠”按钮
+    # “出售 4 组”按钮
     sell4:
       item:
         material: CHEST
         quantity: 4
-        name: "&a出售 4 堆叠"
+        name: "&a出售 4 组"
         lore:
           - "&7价格：&c%sell%"
       value: 4
       slot: 3
-    # “出售 5 堆叠”按钮
+    # “出售 5 组”按钮
     sell5:
       item:
         material: CHEST
         quantity: 5
-        name: "&a出售 5 堆叠"
+        name: "&a出售 5 组"
         lore:
           - "&7价格：&c%sell%"
       value: 5
       slot: 4
-    # “出售 6 堆叠”按钮
+    # “出售 6 组”按钮
     sell6:
       item:
         material: CHEST
         quantity: 6
-        name: "&a出售 6 堆叠"
+        name: "&a出售 6 组"
         lore:
           - "&7价格：&c%sell%"
       value: 6
       slot: 5
-    # “出售 7 堆叠”按钮
+    # “出售 7 组”按钮
     sell7:
       item:
         material: CHEST
         quantity: 7
-        name: "&a出售 7 堆叠"
+        name: "&a出售 7 组"
         lore:
           - "&7价格：&c%sell%"
       value: 7
       slot: 6
-    # “出售 8 堆叠”按钮
+    # “出售 8 组”按钮
     sell8:
       item:
         material: CHEST
         quantity: 8
-        name: "&a出售 8 堆叠"
+        name: "&a出售 8 组"
         lore:
           - "&7价格：&c%sell%"
       value: 8
       slot: 7
-    # “出售 9 堆叠”按钮
+    # “出售 9 组”按钮
     sell9:
       item:
         material: CHEST
         quantity: 9
-        name: "&a出售 9 堆叠"
+        name: "&a出售 9 组"
         lore:
           - "&7价格：&c%sell%"
       value: 9
